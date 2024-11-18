@@ -12,13 +12,13 @@
             padding: 0;
             background: linear-gradient(to bottom, #1c1c1c, #2f2f2f);
             color: #fff;
-            scroll-behavior: smooth; /* Yumuşak kaydırma */
+            scroll-behavior: smooth;
         }
 
         header {
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
-            padding: 10px 0;
+            padding: 20px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
@@ -32,23 +32,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-        }
-
-        /* Logo Alanı */
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-
-        .logo h1 {
-            font-size: 20px;
-            color: #f39c12;
-            margin: 0;
         }
 
         nav ul {
@@ -75,25 +58,44 @@
             color: #f39c12;
         }
 
-        /* Arama Kutusu */
-        .search-section {
-            text-align: center;
-            margin: 40px 0;
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
-        .search-section input {
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .search-box input {
             padding: 10px 15px;
             border: none;
             border-radius: 20px;
             outline: none;
+            margin-right: 10px;
             font-size: 16px;
             background: #444;
             color: #fff;
-            margin-right: 10px;
-            width: 250px;
         }
 
-        .search-section button {
+        .search-box button {
             padding: 10px 20px;
             background: linear-gradient(45deg, #f39c12, #e67e22);
             border: none;
@@ -104,12 +106,12 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .search-section button:hover {
+        .search-box button:hover {
             transform: scale(1.1);
             box-shadow: 0 4px 10px rgba(243, 156, 18, 0.5);
         }
 
-        /* Section */
+        /* Section Stil */
         section {
             max-width: 1200px;
             margin: 40px auto;
@@ -127,6 +129,13 @@
             letter-spacing: 2px;
         }
 
+        #hakkimda p {
+            text-align: center;
+            line-height: 1.8;
+            font-size: 18px;
+            color: #ddd;
+        }
+
         /* Carousel */
         .carousel {
             overflow: hidden;
@@ -134,7 +143,7 @@
             height: 400px;
             position: relative;
             border-radius: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
@@ -186,7 +195,7 @@
         <nav>
             <div class="logo">
                 <img src="logo.png" alt="Logo">
-                <h1>Sanatçı Adı</h1>
+                <span>Sanatçı</span>
             </div>
             <ul>
                 <li><a href="#hakkimda">Hakkımda</a></li>
@@ -196,8 +205,8 @@
         </nav>
     </header>
 
-    <!-- Arama Kutusu -->
-    <div class="search-section">
+    <!-- Search Box -->
+    <div class="search-box">
         <input type="text" id="searchBox" placeholder="Ürün Kodu Ara...">
         <button onclick="searchProduct()">Ara</button>
     </div>
@@ -205,10 +214,10 @@
     <!-- Hakkımda -->
     <section id="hakkimda">
         <h1>Hakkımda</h1>
-        <p>Merhaba! Ben taş yontma sanatında uzmanlaşmış bir sanatçıyım. Doğadan ilham alarak benzersiz eserler yaratıyorum.</p>
+        <p>Merhaba! Ben taş yontma sanatında uzmanlaşmış bir sanatçıyım. Doğadan ilham alarak estetik ve fonksiyonel eserler yaratıyorum.</p>
     </section>
 
-    <!-- İşlerim - Carousel 1 -->
+    <!-- İşlerim -->
     <section id="islerim">
         <h1>İşlerim</h1>
         <div class="carousel">
@@ -267,4 +276,10 @@
                     </head>
                     <body>
                         <h1>Ürün: ${productCode}</h1>
-                        <img
+                        <img src="${productCode}.jpg" alt="${productCode} Görseli">
+                        <p>Bu ürün hakkında detaylar burada yer alacak.</p>
+                    </body>
+                    </html>
+                `);
+            } else {
+                alert('Lütfen bir ürün kodu girin.');
