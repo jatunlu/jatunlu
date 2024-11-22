@@ -259,19 +259,14 @@
     
 
     <script>
-       function searchProduct() {
-    const productCode = document.getElementById('searchBox').value.trim();
+    function searchProduct() {
+    const productCode = document.getElementById('searchBox').value.trim(); // Kullanıcıdan ürün kodunu al
     if (productCode) {
-        // Yeni pencere açmak yerine içeriği mevcut sayfada göstermek
-        const resultDiv = document.createElement('div');
-        resultDiv.innerHTML = `
-            <h2>Ürün: ${productCode}</h2>
-            <img src="${productCode}.jpg" alt="${productCode} Görseli" style="max-width: 80%; height: auto; margin: 20px 0;">
-            <p>Bu ürün hakkında detaylar burada yer alacak.</p>
-        `;
-        document.body.appendChild(resultDiv);  // Sonuçları sayfada göstermek için
+        // Kullanıcıyı ilgili HTML sayfasına yönlendir
+        window.location.href = `${productCode}.html`;
     } else {
-        alert('Lütfen bir ürün kodu girin.');
+        alert('Lütfen bir ürün kodu girin.'); // Ürün kodu boşsa uyarı
     }
 }
+
     </script>
