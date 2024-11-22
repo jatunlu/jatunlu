@@ -256,39 +256,21 @@
         <p>© 2024   <a href="#hakkimda">Murad Yusibov</a></p>
     </footer>
 
+    
+
     <script>
-        function searchProduct() {
-            const productCode = document.getElementById('searchBox').value.trim();
-            if (productCode) {
-                const newWindow = window.open("", "_blank");
-                newWindow.document.write(`
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>${productCode}</title>
-                        <style>
-                            body {
-                                font-family: Arial, sans-serif;
-                                text-align: center;
-                                margin: 20px;
-                                background: #222;
-                                color: #fff;
-                            }
-                            img {
-                                max-width: 80%;
-                                height: auto;
-                                margin: 20px 0;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <h1>Ürün: ${productCode}</h1>
-                        <img src="${productCode}.jpg" alt="${productCode} Görseli">
-                        <p>Bu ürün hakkında detaylar burada yer alacak.</p>
-                    </body>
-                    </html>
-                `);
-            } else {
-                alert('Lütfen bir ürün kodu girin.');
+       function searchProduct() {
+    const productCode = document.getElementById('searchBox').value.trim();
+    if (productCode) {
+        // Yeni pencere açmak yerine içeriği mevcut sayfada göstermek
+        const resultDiv = document.createElement('div');
+        resultDiv.innerHTML = `
+            <h2>Ürün: ${productCode}</h2>
+            <img src="${productCode}.jpg" alt="${productCode} Görseli" style="max-width: 80%; height: auto; margin: 20px 0;">
+            <p>Bu ürün hakkında detaylar burada yer alacak.</p>
+        `;
+        document.body.appendChild(resultDiv);  // Sonuçları sayfada göstermek için
+    } else {
+        alert('Lütfen bir ürün kodu girin.');
+    }
+}
