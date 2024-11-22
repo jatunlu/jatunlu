@@ -262,11 +262,25 @@
     function searchProduct() {
     const productCode = document.getElementById('searchBox').value.trim(); // Kullanıcıdan ürün kodunu al
     if (productCode) {
-        // Kullanıcıyı ilgili HTML sayfasına yönlendir
-        window.location.href = `${productCode}.html`;
+        const targetFile = `${productCode}.html`; // Hedef dosya adını oluştur
+        fetch(targetFile)
+            .then(response => {
+                if (response.ok) {
+                    // Dosya mevcutsa yönlendirme yap
+                    window.location.href = targetFile;
+                } else {
+                    // Dosya mevcut değilse uyarı göster
+                    alert(`Bu ürün koduna ait sayfa bulunamadı: ${productCode}`);
+                }
+            })
+            .catch(error => {
+                console.error('Bir hata oluştu:', error);
+                alert('Dosya kontrolü sırasında bir hata oluştu.');
+            });
     } else {
-        alert('Lütfen bir ürün kodu girin.'); // Ürün kodu boşsa uyarı
+        alert('Lütfen bir ürün kodu girin.');
     }
 }
+
 
     </script>
