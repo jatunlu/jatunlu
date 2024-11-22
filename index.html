@@ -270,15 +270,15 @@
                     window.location.href = targetFile;
                 } else {
                     // Dosya mevcut değilse uyarı göster
-                    alert(`Bu ürün koduna ait sayfa bulunamadı: ${productCode}`);
+                    alert(`Bu kodda məhsul yoxdur: ${productCode}`);
                 }
             })
             .catch(error => {
-                console.error('Bir hata oluştu:', error);
+                console.error('bir xəta baş verdi:', error);
                 alert('Dosya kontrolü sırasında bir hata oluştu.');
             });
     } else {
-        alert('Lütfen bir ürün kodu girin.');
+        alert('Zəhmət olmasa məhsul kodunu daxil edin.');
     }
 }
 
